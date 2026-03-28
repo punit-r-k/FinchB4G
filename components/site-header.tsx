@@ -60,7 +60,6 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ initialTheme }: SiteHeaderProps) {
   const pathname = usePathname();
-  const isHome = pathname === "/";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const theme = useSyncExternalStore(subscribeToTheme, getDomTheme, () => initialTheme);
@@ -103,14 +102,9 @@ export function SiteHeader({ initialTheme }: SiteHeaderProps) {
     applyTheme(nextTheme);
   };
 
-  const wrapperClassName = `${styles.wrapper} ${isHome ? styles.homeWrapper : ""}`;
-  const headerClassName = `${styles.header} ${isScrolled ? styles.scrolled : ""} ${
-    isHome && !isScrolled ? styles.homeHeader : ""
-  }`;
-
   return (
-    <div className={wrapperClassName}>
-      <header className={headerClassName}>
+    <div className={styles.wrapper}>
+      <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
         <div className={styles.inner}>
           <div className={styles.leftRail}>
             <BrandLogo />

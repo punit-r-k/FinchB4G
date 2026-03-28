@@ -4,13 +4,6 @@
   z-index: 50;
 }
 
-.homeWrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
 .inner {
   width: min(1280px, calc(100% - 32px));
   margin: 0 auto;
@@ -25,11 +18,6 @@
   padding: 16px 0;
   border-bottom: 1px solid transparent;
   background: rgba(252, 251, 248, 0.72);
-}
-
-.homeHeader {
-  background: transparent;
-  border-bottom-color: transparent;
 }
 
 .scrolled {
@@ -52,28 +40,6 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 20px;
-}
-
-.homeHeader .navLink {
-  color: rgba(241, 245, 249, 0.86);
-}
-
-.homeHeader .navLink:hover,
-.homeHeader .navLink:focus-visible,
-.homeHeader .navLinkActive {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.homeHeader .secondaryAction {
-  border-color: rgba(255, 255, 255, 0.14);
-  background: rgba(17, 24, 21, 0.4);
-  color: #ffffff;
-  backdrop-filter: blur(16px);
-}
-
-.homeHeader .ghostAction {
-  color: rgba(255, 255, 255, 0.92);
 }
 
 .leftRail {

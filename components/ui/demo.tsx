@@ -1,11 +1,9 @@
-import React from "react";
+import { Component } from "@/components/ui/hero-2";
 
-import HeroSection from "@/components/ui/glassmorphism-trust-hero";
-
-export default function HeroDemo() {
+export default function DemoOne() {
   return (
-    <div className="w-full h-screen overflow-y-auto bg-zinc-950">
-      <HeroSection />
+    <div className="min-h-screen bg-black">
+      <Component />
     </div>
   );
 }

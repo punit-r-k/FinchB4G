@@ -3,8 +3,7 @@ import { cookies } from "next/headers";
 import { Plus_Jakarta_Sans, Sora } from "next/font/google";
 import "./globals.css";
 
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { SiteShell } from "@/components/site-shell";
 import { normalizeTheme } from "@/lib/theme";
 
 const bodyFont = Plus_Jakarta_Sans({
@@ -63,9 +62,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body className="siteBody">
-        <SiteHeader initialTheme={initialTheme} />
-        <div className="siteMain">{children}</div>
-        <SiteFooter />
+        <SiteShell initialTheme={initialTheme}>{children}</SiteShell>
       </body>
     </html>
   );

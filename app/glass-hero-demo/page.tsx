@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import HeroDemo from "@/components/ui/demo";
+import HeroSection from "@/components/ui/glassmorphism-trust-hero";
 
 export const metadata: Metadata = {
   title: "Glass Hero Demo",
@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function GlassHeroDemoPage() {
-  return <HeroDemo />;
+  return <HeroSection />;
 }
