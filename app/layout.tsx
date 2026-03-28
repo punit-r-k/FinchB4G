@@ -1,42 +1,72 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { cookies } from "next/headers";
+import { Plus_Jakarta_Sans, Sora } from "next/font/google";
 import "./globals.css";
 
-const bodyFont = Manrope({
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { normalizeTheme } from "@/lib/theme";
+
+const bodyFont = Plus_Jakarta_Sans({
   variable: "--font-body",
   subsets: ["latin"],
 });
 
-const displayFont = Fraunces({
+const displayFont = Sora({
   variable: "--font-display",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "FinchB4G",
-  description: "A clean Next.js frontend starter ready to customize and publish on Vercel.",
-  applicationName: "FinchB4G",
-  keywords: ["Next.js", "Vercel", "website starter", "FinchB4G"],
+  title: {
+    default: "Finch | Turn Applications Into Interviews.",
+    template: "%s | Finch",
+  },
+  description:
+    "Finch helps students stop mass applying blindly and start applying with more strategy, more speed, and better interview odds.",
+  applicationName: "Finch",
+  keywords: [
+    "Finch",
+    "student recruiting",
+    "internship applications",
+    "application strategy",
+    "early access",
+  ],
+  metadataBase: new URL("https://finch.local"),
   openGraph: {
-    title: "FinchB4G",
-    description: "A clean Next.js frontend starter ready to customize and publish on Vercel.",
+    title: "Finch | Turn Applications Into Interviews.",
+    description:
+      "A polished student-focused product brand for intentional recruiting, faster workflows, and higher-signal applications.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "FinchB4G",
-    description: "A clean Next.js frontend starter ready to customize and publish on Vercel.",
+    title: "Finch | Turn Applications Into Interviews.",
+    description:
+      "Stop mass applying. Start applying with strategy.",
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const initialTheme = normalizeTheme(cookieStore.get("finch-theme")?.value);
+
   return (
-    <html lang="en" className={`${bodyFont.variable} ${displayFont.variable}`}>
-      <body>{children}</body>
+    <html
+      className={`${bodyFont.variable} ${displayFont.variable}`}
+      data-theme={initialTheme}
+      lang="en"
+      suppressHydrationWarning
+    >
+      <body className="siteBody">
+        <SiteHeader initialTheme={initialTheme} />
+        <div className="siteMain">{children}</div>
+        <SiteFooter />
+      </body>
     </html>
   );
 }

@@ -1,0 +1,10 @@
+▲ Next.js 16.2.1 (Turbopack)
+- Local:         http://localhost:3010
+- Network:       http://10.248.239.207:3010
+✓ Ready in 371ms
+Creating turbopack project {
+  dir: 'C:\\Users\\punit\\OneDrive\\Documents\\GitHub\\FinchB4G',
+  testMode: true
+}
+
+ GET / 200 in 1953ms (next.js: 1670ms, application-code: 283ms)
