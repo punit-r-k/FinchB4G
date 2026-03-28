@@ -2,6 +2,17 @@
   "name": "finchb4g",
   "version": "0.1.0",
   "private": true,
+  "description": "Basic website frontend built with Next.js, TypeScript, and the App Router. It is set up as a simple landing page starter that you can customize first and connect to Vercel later.",
+  "homepage": "https://github.com/punit-r-k/FinchB4G#readme",
+  "bugs": {
+    "url": "https://github.com/punit-r-k/FinchB4G/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/punit-r-k/FinchB4G.git"
+  },
+  "license": "ISC",
+  "author": "birbs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
