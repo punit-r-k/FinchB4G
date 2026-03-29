@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import styles from "./theme-toggle.module.css";
 import type { ThemeMode } from "@/lib/theme";
+import lightIcon from "../output-onlinepngtools.png";
+import darkIcon from "../output-onlinepngtools (1).png";
 
 type ThemeToggleProps = {
   onToggle: () => void;
@@ -9,18 +12,17 @@ type ThemeToggleProps = {
 };
 
 export function ThemeToggle({ onToggle, theme }: ThemeToggleProps) {
+  const icon = theme === "dark" ? darkIcon : lightIcon;
+  const label = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
 
   return (
     <button
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      aria-label={label}
       className={styles.toggle}
       onClick={onToggle}
       type="button"
     >
-      <span className={styles.track}>
-        <span className={theme === "dark" ? styles.knobDark : styles.knobLight} />
-      </span>
-      <span className={styles.label}>{theme === "dark" ? "Dark" : "Light"}</span>
+      <Image src={icon} alt={theme === "dark" ? "Dark mode icon" : "Light mode icon"} width={24} height={24} />
     </button>
   );
 }
